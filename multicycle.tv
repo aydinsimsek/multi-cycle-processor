@@ -1,0 +1,213 @@
+//RESET_RUN_Result_CurrentState 
+1_x_xxxxxxxx_xxxx
+0_1_00000001_0000 // LDI R0,#30 Fetch state  
+0_1_00000001_1101 // Extra state to determine if LRWrite should be asserted 
+0_1_00000010_0001 // LDI R0,#30 Decode state  
+0_1_00011110_0010 // LDI R0,#30 Execute state to load immediate to register
+0_1_00000010_0000 // BL 2's_complement Fetch state
+0_1_00000010_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00000011_0001 // BL 2's_complement Decode state 
+0_1_00001001_0110 // BL 2's_complement Execute state to calculate BTA and use this address as nextPC(PC') 
+0_1_00001010_0000 // LDI R1,#3 Fetch state
+0_1_00001010_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00001011_0001 // LDI R1,#3 Decode state  
+0_1_00000011_0010 // LDI R1,#3 Execute state to load immediate to register  
+0_1_00001011_0000 // LDD R2,[R0,#15] Fetch state
+0_1_00001011_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00001100_0001 // LDD R2,[R0,#15] Decode state 
+0_1_00101101_0011 // LDD R2,[R0,#15] Execute state 1st cycle to calculate memory address 
+0_1_00101101_0111 // LDD R2,[R0,#15] Execute state 2nd cycle to read data from IDM 
+0_1_11111111_1000 // LDD R2,[R0,#15] Execute state 3rd cycle to write data to destination register   
+0_1_00001100_0000 // LDI R3,#1 Fetch state 
+0_1_00001100_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00001101_0001 // LDI R3,#1 Decode state 
+0_1_00000001_0010 // LDI R3,#1 Execute state to load immediate to register  
+0_1_00001101_0000 // SUB R1,R2,R1 Fetch state 
+0_1_00001101_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00001110_0001 // SUB R1,R2,R1 Decode state 
+0_1_11111100_0100 // SUB R1,R2,R1 Execute state 1st cycle to calculate R2-R1   
+0_1_11111100_1010 // SUB R1,R2,R1 Execute state 2nd cycle to write result to destination register  
+0_1_00001110_0000 // ADD R1,R1,R3 Fetch state 
+0_1_00001110_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00001111_0001 // ADD R1,R1,R3 Decode state 
+0_1_11111101_0100 // ADD R1,R1,R3 Execute state 1st cycle to calculate R1+R3    
+0_1_11111101_1010 // ADD R1,R1,R3 Execute state 2nd cycle to write result to destination register     
+0_1_00001111_0000 // BX LR Fetch state  
+0_1_00001111_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00010000_0001 // BX LR Decode state 
+0_1_00010000_1100 // BX LR Execute state to get the nextPC from LR  
+0_1_00000011_0000 // BL sum_of_array Fetch state  
+0_1_00000011_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00000100_0001 // BL sum_of_array Decode state 
+0_1_00001111_0110 // BL sum_of_array Execute state to calculate BTA and use this address as nextPC(PC')   
+0_1_00010000_0000 // LDI R1,#0 Fetch state   
+0_1_00010000_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00010001_0001 // LDI R1,#0 Decode state 
+0_1_00000000_0010 // LDI R1,#0 Execute state to load immediate to register 
+0_1_00010001_0000 // LDD R2,[R0,#9] Fetch state   
+0_1_00010001_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00010010_0001 // LDD R2,[R0,#9] Decode state
+0_1_00100111_0011 // LDD R2,[R0,#9] Execute state 1st cycle to calculate memory address
+0_1_00100111_0111 // LDD R2,[R0,#9] Execute state 2nd cycle to read data from IDM 
+0_1_00000001_1000 // LDD R2,[R0,#9] Execute state 3rd cycle to write data to destination register 
+0_1_00010010_0000 // LDD R3,[R0,#10] Fetch state  
+0_1_00010010_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00010011_0001 // LDD R3,[R0,#10] Decode state 
+0_1_00101000_0011 // LDD R3,[R0,#10] Execute state 1st cycle to calculate memory address
+0_1_00101000_0111 // LDD R3,[R0,#10] Execute state 2nd cycle to read data from IDM 
+0_1_00000010_1000 // LDD R3,[R0,#10] Execute state 3rd cycle to write data to destination register 
+0_1_00010011_0000 // LDD R4,[R0,#11] Fetch state  
+0_1_00010011_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00010100_0001 // LDD R4,[R0,#11] Decode state 
+0_1_00101001_0011 // LDD R4,[R0,#11] Execute state 1st cycle to calculate memory address
+0_1_00101001_0111 // LDD R4,[R0,#11] Execute state 2nd cycle to read data from IDM 
+0_1_00000011_1000 // LDD R4,[R0,#11] Execute state 3rd cycle to write data to destination register 
+0_1_00010100_0000 // LDD R5,[R0,#12] Fetch state  
+0_1_00010100_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00010101_0001 // LDD R5,[R0,#12] Decode state 
+0_1_00101010_0011 // LDD R5,[R0,#12] Execute state 1st cycle to calculate memory address
+0_1_00101010_0111 // LDD R5,[R0,#12] Execute state 2nd cycle to read data from IDM 
+0_1_00000100_1000 // LDD R5,[R0,#12] Execute state 3rd cycle to write data to destination register 
+0_1_00010101_0000 // LDD R6,[R0,#13] Fetch state   
+0_1_00010101_1101 // Extra state to determine if LRWrite should be asserted 
+0_1_00010110_0001 // LDD R6,[R0,#13] Decode state 
+0_1_00101011_0011 // LDD R6,[R0,#13] Execute state 1st cycle to calculate memory address
+0_1_00101011_0111 // LDD R6,[R0,#13] Execute state 2nd cycle to read data from IDM 
+0_1_00000101_1000 // LDD R6,[R0,#13] Execute state 3rd cycle to write data to destination register   
+0_1_00010110_0000 // ADD R1,R1,R2 Fetch state   
+0_1_00010110_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00010111_0001 // ADD R1,R1,R2 Decode state 
+0_1_00000001_0100 // ADD R1,R1,R2 Execute state 1st cycle to calculate R1+R2 
+0_1_00000001_1010 // ADD R1,R1,R2 Execute state 2nd cycle to write result to destination register
+0_1_00010111_0000 // ADD R1,R1,R3 Fetch state   
+0_1_00010111_1101 // Extra state to determine if LRWrite should be asserted 
+0_1_00011000_0001 // ADD R1,R1,R3 Decode state 
+0_1_00000011_0100 // ADD R1,R1,R3 Execute state 1st cycle to calculate R1+R3 
+0_1_00000011_1010 // ADD R1,R1,R3 Execute state 2nd cycle to write result to destination register
+0_1_00011000_0000 // ADD R1,R1,R4 Fetch state   
+0_1_00011000_1101 // Extra state to determine if LRWrite should be asserted 
+0_1_00011001_0001 // ADD R1,R1,R4 Decode state
+0_1_00000110_0100 // ADD R1,R1,R4 Execute state 1st cycle to calculate R1+R4 
+0_1_00000110_1010 // ADD R1,R1,R4 Execute state 2nd cycle to write result to destination register 
+0_1_00011001_0000 // ADD R1,R1,R5 Fetch state   
+0_1_00011001_1101 // Extra state to determine if LRWrite should be asserted 
+0_1_00011010_0001 // ADD R1,R1,R5 Decode state 
+0_1_00001010_0100 // ADD R1,R1,R5 Execute state 1st cycle to calculate R1+R5 
+0_1_00001010_1010 // ADD R1,R1,R5 Execute state 2nd cycle to write result to destination register  
+0_1_00011010_0000 // ADD R1,R1,R6 Fetch state 
+0_1_00011010_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00011011_0001 // ADD R1,R1,R6 Decode state 
+0_1_00001111_0100 // ADD R1,R1,R6 Execute state 1st cycle to calculate R1+R6 
+0_1_00001111_1010 // ADD R1,R1,R6 Execute state 2nd cycle to write result to destination register 
+0_1_00011011_0000 // STR R1,[R0,#14] Fetch state   
+0_1_00011011_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00011100_0001 // STR R1,[R0,#14] Decode state 
+0_1_00101100_0011 // STR R1,[R0,#14] Execute state 1st cycle to calculate memory address 
+0_1_00101100_1001 // STR R1,[R0,#14] Execute state 2nd cycle to write data to IDM 
+0_1_00011100_0000 // BX LR Fetch state  
+0_1_00011100_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00011101_0001 // BX LR Decode state 
+0_1_00011101_1100 // BX LR Execute state to get the nextPC from LR 
+0_1_00000100_0000 // LDD R4,[R0,#14] Fetch state   
+0_1_00000100_1101 // Extra state to determine if LRWrite should be asserted 
+0_1_00000101_0001 // LDD R4,[R0,#14] Decode state 
+0_1_00101100_0011 // LDD R4,[R0,#14] Execute state 1st cycle to calculate memory address  
+0_1_00101100_0111 // LDD R4,[R0,#14] Execute state 2nd cycle to read data from IDM 
+0_1_00001111_1000 // LDD R4,[R0,#14] Execute state 3rd cycle to write data to destination register   
+0_1_00000101_0000 // LDD R1,[R0,#16] Fetch state 
+0_1_00000101_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00000110_0001 // LDD R1,[R0,#16] Decode state 
+0_1_00101110_0011 // LDD R1,[R0,#16] Execute state 1st cycle to calculate memory address  
+0_1_00101110_0111 // LDD R1,[R0,#16] Execute state 2nd cycle to read data from IDM 
+0_1_01010101_1000 // LDD R1,[R0,#16] Execute state 3rd cycle to write data to destination register 
+0_1_00000110_0000 // BL even_odd Fetch state   
+0_1_00000110_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00000111_0001 // BL even_odd Decode state 
+0_1_00011100_0110 // BL even_odd Execute state to calculate BTA and use this address as nextPC(PC')  
+0_1_00011101_0000 // LDI R2,#1 Fetch state  
+0_1_00011101_1101 // Extra state to determine if LRWrite should be asserted
+0_1_00011110_0001 // LDI R2,#1 Decode state 
+0_1_00000001_0010 // LDI R2,#1 Execute state to load immediate to register
+0_1_00011110_0000 // ANDS R3,R2,R1 Fetch state   
+0_1_00011110_1101 // Extra state to determine if LRWrite should be asserted 
+0_1_00011111_0001 // ANDS R3,R2,R1 Decode state 
+0_1_00000001_0100 // ANDS R3,R2,R1 Execute state 1st cycle to calculate R2&R1 
+0_1_00000001_1010 // ANDS R3,R2,R1 Execute state 2nd cycle to write result to destination register     
+0_1_00011111_0000 // BNE label_1 Fetch state   
+0_1_00011111_1101 // Extra state to determine if LRWrite should be asserted  
+0_1_00100000_0001 // BNE label_1 Decode state 
+0_1_00100000_0110 // BNE label_1 Execute state to calculate BTA and use this address as nextPC(PC') since "if not zero" condition is satisfied 
+0_1_00100001_0000 // LSR R1,#1 Fetch state  
+0_1_00100001_1101 // Extra state to determine if LRWrite should be asserted  
+0_1_00100010_0001 // LSR R1,#1 Decode state 
+0_1_00100010_0101 // LSR R1,#1 Execute state 1st cycle give content of R1 as input to Shift Register and calculate the result
+0_1_00101010_1011 // LSR R1,#1 Execute state 2nd cycle write the result obtained from Shift Register to R1 			   
+0_1_00100010_0000 // ROL R1,#4 Fetch state  
+0_1_00100010_1101 // Extra state to determine if LRWrite should be asserted  
+0_1_00100011_0001 // ROL R1,#4 Decode state 
+0_1_00100011_0101 // ROL R1,#4 Execute state 1st cycle give content of R1 as input to Shift Register and calculate the result
+0_1_10100010_1011 // ROL R1,#4 Execute state 2nd cycle write the result obtained from Shift Register to R1
+0_1_00100011_0000 // BX LR Fetch state 
+0_1_00100011_1101 // Extra state to determine if LRWrite should be asserted  
+0_1_00100100_0001 // BX LR Decode state 
+0_1_00100100_1100 // BX LR Execute state to get the nextPC from LR 
+0_1_00000111_0000 // LDD R1,[R0,#17] Fetch state    
+0_1_00000111_1101 // Extra state to determine if LRWrite should be asserted  
+0_1_00001000_0001 // LDD R1,[R0,#17] Decode state 
+0_1_00101111_0011 // LDD R1,[R0,#17] Execute state 1st cycle to calculate memory address
+0_1_00101111_0111 // LDD R1,[R0,#17] Execute state 2nd cycle to read data from IDM
+0_1_10101010_1000 // LDD R1,[R0,#17] Execute state 3rd cycle to write data to destination register
+0_1_00001000_0000 // BL even_odd Fetch state  
+0_1_00001000_1101 // Extra state to determine if LRWrite should be asserted  
+0_1_00001001_0001 // BL even_odd Decode state 
+0_1_00011100_0110 // BL even_odd Execute state to calculate BTA and use this address as nextPC(PC')
+0_1_00011101_0000 // LDI R2,#1 Fetch state 
+0_1_00011101_1101 // Extra state to determine if LRWrite should be asserted   
+0_1_00011110_0001 // LDI R2,#1 Decode state 
+0_1_00000001_0010 // LDI R2,#1 Execute state to load immediate to register 
+0_1_00011110_0000 // ANDS R3,R2,R1 Fetch state   
+0_1_00011110_1101 // Extra state to determine if LRWrite should be asserted   
+0_1_00011111_0001 // ANDS R3,R2,R1 Decode state 
+0_1_00000000_0100 // ANDS R3,R2,R1 Execute state 1st cycle to calculate R2&R1
+0_1_00000000_1010 // ANDS R3,R2,R1 Execute state 2nd cycle to write result to destination register
+0_1_00011111_0000 // BNE label_1 Fetch state  
+0_1_00011111_1101 // Extra state to determine if LRWrite should be asserted   
+0_1_00100000_0001 // BNE label_1 Decode state 
+0_1_00100000_0110 // BNE label_1 Execute state calculate BTA but DO NOT use this address since "if not zero" condition is not satisfied 
+0_1_00100000_0000 // BEQ label_2 Fetch state  
+0_1_00100000_1101 // Extra state to determine if LRWrite should be asserted   
+0_1_00100001_0001 // BEQ label_2 Decode state 
+0_1_00100011_0110 // BEQ label_2 Execute state to calculate BTA and use this address as nextPC(PC') since "if zero" condition is satisfied      
+0_1_00100100_0000 // LSR R1,#1 Fetch state 
+0_1_00100100_1101 // Extra state to determine if LRWrite should be asserted   
+0_1_00100101_0001 // LSR R1,#1 Decode state 
+0_1_00100101_0101 // LSR R1,#1 Execute state 1st cycle give content of R1 as input to Shift Register and calculate the result
+0_1_01010101_1011 // LSR R1,#1 Execute state 2nd cycle write the result obtained from Shift Register to R1
+0_1_00100101_0000 // LSL R1,#4 Fetch state   
+0_1_00100101_1101 // Extra state to determine if LRWrite should be asserted   
+0_1_00100110_0001 // LSL R1,#4 Decode state 
+0_1_00100110_0101 // LSL R1,#4 Execute state 1st cycle give content of R1 as input to Shift Register and calculate the result
+0_1_01010000_1011 // LSL R1,#4 Execute state 2nd cycle write the result obtained from Shift Register to R1
+0_1_00100110_0000 // LSR R1,#1 Fetch state  
+0_1_00100110_1101 // Extra state to determine if LRWrite should be asserted   
+0_1_00100111_0001 // LSR R1,#1 Decode state 
+0_1_00100111_0101 // LSR R1,#1 Execute state 1st cycle give content of R1 as input to Shift Register and calculate the result
+0_1_00101000_1011 // LSR R1,#1 Execute state 2nd cycle write the result obtained from Shift Register to R1
+0_1_00100111_0000 // BX LR Fetch state   
+0_1_00100111_1101 // Extra state to determine if LRWrite should be asserted   
+0_1_00101000_0001 // BX LR Decode state 
+0_1_00101000_1100 // BX LR Execute state to get the nextPC from LR 
+0_1_00001001_0000 // Fetch state of END instruction 
+0_1_00001001_1101 // Extra state to determine if LRWrite should be asserted   
+0_1_00001010_0001 // Decode state of END instruction 
+0_1_00001010_0001 // Halt the execution 
+0_1_00001010_0001  
+0_1_00001010_0001  
+0_1_00001010_0001  
+0_1_00001010_0001  
+0_1_00001010_0001  
+0_1_00001010_0001  
+0_1_00001010_0001  
+0_1_00001010_0001   
+x_x_xxxxxxxx_xxxx
+ 
