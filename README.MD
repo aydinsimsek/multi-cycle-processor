@@ -4,4 +4,4 @@ Its instruction set architecture contains instructions for the following operati
 I validated its operation via microprograms that computes the 2's complement of a 1 byte number, calculates the sum of an array and determines the evenness/oddity of a 1 byte number.  
 
 # License
-This project is licensed under MIT License. Check the [LICENSE](multi-cycle-processor/LICENSE) file for details.  
+This project is licensed under MIT License. Check the [LICENSE](https://github.com/aydinsimsek/multi-cycle-processor/blob/master/LICENSE) file for details.  
